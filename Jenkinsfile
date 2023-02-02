@@ -1,7 +1,7 @@
 pipeline{
   agent {
     node {
-      label 'nodejs-nodo'
+      label 'node-nodejs'
     }
   }
 
@@ -14,5 +14,12 @@ pipeline{
         }
       }
     }
+  stage('SonarQube analysis') {
+     steps {
+       withSonarQubeEnv(credentialsId: "sonarqube-credentials", installationName: "sonarqube-server"){
+         sh 'npm run sonar'
+       }
+     }
+   }   
   }
 }
