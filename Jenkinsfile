@@ -52,6 +52,11 @@ pipeline{
         }
       }
     }
-    
   }
+  post {
+  always {
+    sh 'docker logout'
+    sh "docker rmi -f " + registryFrontend + ":latest"
+  }
+ }
 }
