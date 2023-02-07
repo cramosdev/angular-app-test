@@ -5,7 +5,7 @@ pipeline{
     }
   }
   
-  enviroment{
+  environment{
     registryCredentials='docker-hub-credentials'
     registryFrontend = 'cramosdev/frontend-demo'
     sonarqubeCredentials = 'sonarqube-credentials'
