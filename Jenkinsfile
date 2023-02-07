@@ -46,7 +46,7 @@ pipeline{
       steps {
         script {
           dockerImage = docker.build registryFrontend + ":latest"
-          docker.withRegistry( '', registryCredential) {
+          docker.withRegistry( '', registryCredentials) {
             dockerImage.push()
           }
         }
